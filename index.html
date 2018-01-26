@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>HUI </title>
+    <link rel="stylesheet" type="text/css" href="./plugins/hui/css/hui.css" />
+    <style rel="stylesheet" type="text/css">
+        #list2 li{width:50%; float:left; margin:5px 0px;}
+        #list2 .hui-img-list-content{padding:5px; padding-bottom:10px;}
+        #list2 h1{font-size:14px;}
+
+    </style>
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-header-menu" onclick="showMenu();"></div>
+    <h1>logo </h1>  
+</header>
+<div class="hui-wrap">
+    <div class="hui-swipe" id="swipe2" style="margin-top:15px;">
+        <div class="hui-swipe-item"><img src="img/calendar.jpg"/></div>
+        <div class="hui-swipe-item"><img src="./img/book.jpg"/></div>
+        <div class="hui-swipe-item"><img src="./img/album.jpg"/></div>
+        <div class="hui-swipe-item"><img src="img/theBrochure.jpg"/></div>
+    </div>
+    <div class="hui-img-list" id="list2">
+        <ul>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <img src="img/calendar.jpg" />
+                    <div class="hui-img-list-content">
+                        <h1>台历</h1>
+                        <p>power by hcoder.net</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <img src="./img/album.jpg" />
+                    <div class="hui-img-list-content">
+                        <h1>相册</h1>
+                        <p>power by hcoder.net</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <img src="img/theBrochure.jpg" />
+                    <div class="hui-img-list-content">
+                        <h1>宣传册</h1>
+                        <p>power by hcoder.net</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:hui.toast('hi...');">
+                    <img src="./img/book.jpg" />
+                    <div class="hui-img-list-content" style="float: none">
+                        <h1>微博书</h1>
+                        <p>power by hcoder.net</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div style="padding:28px;">
+        <button type="button" class="hui-button hui-button-large" id="btn1">资源广场</button>
+    </div>
+   <div style="text-align: center; padding-bottom: 20px;">
+<p>版权</p>
+
+   </div>
+</div>
+<div class="hui-menu">
+    <div style="width: 100%; height: 44px; background-color: #FFFFFF;">
+
+    </div>
+    <div class="hui-list" style="margin-top:30px; padding:20px;">
+        <ul>
+            <li>首页</li>
+            <li>下载App</li>
+            <li>5454145</li>
+            <li>菜单4</li>
+            <li style="padding-top:30px;">
+                <button type="button" class="hui-button hui-button-large" onclick="closeMenu();">关闭菜单</button>
+            </li>
+        </ul>
+    </div>
+<script src="./js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="./plugins/hui/js/hui.js" charset="UTF-8"></script>
+<script src="./plugins/hui/js/hui-swipe.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var swipe = new huiSwipe("#swipe2");
+        swipe.autoPlay = true;
+        swipe.run();
+    });
+    hui(document).swipe(function(e){
+        if(e == 'left'){showMenu();}
+    });
+    function showMenu(){
+        hui.maskShow();
+        var menu = hui('.hui-menu').eq(0);
+        menu.addClass('hui-menu-show');
+        hui.maskTap(function(){
+            closeMenu();
+        });
+    }
+    function closeMenu(){
+        var menu = hui('.hui-menu').eq(0);
+        menu.removeClass('hui-menu-show');
+        hui.maskHide();
+    }
+    hui.accordion(true, true);
+
+</script>
+</body>
+</html>
